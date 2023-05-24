@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --color-primary: #fff;
+  --color-secondary: #000;
+  --color-proton: #000;
+  --color-third: rgba(0,0,0,0.1) ;
+}
+
+.dark {
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --color-proton: #d3d3d3;
+  --color-third: #5b5b5b ;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  transition: all 0.15s ease;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+section {
+  max-width: 1140px;
+  width: 95%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+nav {
+  border-bottom: 0.1rem solid var(--color-third);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 2rem 0;
+}
+
+nav .logo {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  color: var(--color-proton);
+}
+
+nav ul li:not(:last-child) {
+  margin-right: 2rem;
+  position: relative;
+}
+
+nav ul li.active::after {
+  width: 100%;
+  left: 0;
+}
+
+nav ul li.active {
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+nav ul li {
+  font-size: 1.5rem;
+  color: var(--color-proton);
+  position: relative;
+}
+
+nav ul li::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 50%;
+  background-color: var(--color-secondary);
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+nav ul li:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-primary);
+    
+    z-index: 999;
+  }
+  
+.dropdown-menu li {
+    
+    padding: 12px 16px;
+    width: 180px; /* Set a fixed width for the dropdown menu items */
+  }
+  
+.dropdown-menu li:hover {
+    background-color: #f9f9f9;
+  }
+  
+#nav-mode_switch {
+  font-size: 1.2rem;
+  background: transparent;
+  outline: none;
+  color: var(--color-secondary);
+  border: none;
+  cursor: pointer;
+}
+
+body.dark #nav-mode_switch .fa-sun {
+  display: none;
+}
+
+body.dark #nav-mode_switch .fa-moon {
+  display: block;
+}
+
+#nav-mode_switch .fa-moon {
+  display: none;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.topic li{
+    padding-top: 3%;
+}
+
+.container-topic{
+  border-top: 0.1rem solid var(--color-third);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center; /* Center the boxes horizontally */
+}
+
+.container-topic .column {
+  flex: 1 1 10rem;
+  max-width: 250px; /* Limit the maximum width of each box */
+  text-align: center;
+}
+
+.container-topic .column a{
+  display: block;
+  color: var(--color-proton);
+  padding: 0.5rem 0;
+}
+
+main h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+main p {
+  line-height: 1.7rem;
+  font-size: 0.9rem;
+  color: var(--color-proton);
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+footer {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+footer .box-container {
+  border-top: 0.1rem solid var(--color-third);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center; /* Center the boxes horizontally */
+}
+
+footer .box-container .box {
+  flex: 1 1 10rem;
+  max-width: 250px; /* Limit the maximum width of each box */
+  text-align: center;
+}
+
+footer .box-container .box h3 {
+  color: var(--color-proton);
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+footer .box-container .box a {
+  display: block;
+  color: var(--color-proton);
+  padding: 0.5rem 0;
+}
+
+footer .box-container .box a:hover {
+  color: var(--color-proton);
+  text-decoration: underline;
+}
+
+footer .credit {
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 1.5rem;
+  padding-top: 2.5rem;
+  font-size: 1rem;
+  color: var(--color-proton);
+  border-top: 0.1rem solid var(--color-third);
+}
